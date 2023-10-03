@@ -47,7 +47,7 @@ export const recipes = [
 id:"01",
 name:"Mosaic Cake",
 image :require('../../images/mozaik.jpg'),
-
+color:"#4682b4",
 ingredients:
 ["1 lb Petit Beurre or Social thin tea biscuits,",
              "10 tbsp brown/white sugar,",
@@ -72,6 +72,7 @@ cooking:["In a bowl, mix all the ingredients but the biscuits. Then crumble the 
 id:"02",
 name:" Baklava",
 image :require('../../images/baklava.jpg'),
+color:"#a0522d",
 ingredients:[
 "1 lb Phyllo Dough, thawed,",
  "250 gr butter, melted,",
@@ -94,6 +95,7 @@ cooking:["For the syrup; boil the sugar and water until the sugar is melted. The
 id:"03",
 name:" Pogaca",
 image: require("../../images/pogaca.jpg"),
+color:"#708090",
 ingredients:[
 "2 medium potatoes, boiled and peeled,",
  "2 eggs,",
@@ -116,7 +118,8 @@ cooking:["Grate boiled and cooled potatoes. Then, combine all the dough ingredie
 {
 id:"04",
 name:" Lahmacun",
-image:require("../../images/lahmacun.jpg"),
+image: require("../../images/lahmacun.jpg"),
+color:"#ff4500",
 ingredients:
 ["500g strong white bread flour,",
  "7g dried fast-action yeast,",
@@ -132,7 +135,7 @@ ingredients:
  "1 tsp allspice,",
  "2 tbsp olive oil,",
  "½ lemon,",
- "½-1 medium red onion, finely sliced,"],
+ "½-1 medium red onion, finely sliced"],
 time:"45 min",
 difficulty:"medium",
 calories:"682 kcal",

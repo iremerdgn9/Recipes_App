@@ -6,6 +6,7 @@ import RecipeListScreen from "../screens/RecipeList/RecipeListScreen";
 import { StyleSheet, Text, View, SafeAreaView} from "react-native";
 import RecipeDetailScreen from "../screens/RecipeDetail/RecipeDetailScreen";
 import RecipeDetailList from "../screens/RecipeList/RecipeDetailList";
+import Favorites from "../screens/Favorites/Favorites";
 
 
 
@@ -18,6 +19,7 @@ const AppNavigation = () => {
                 <Stack.Screen name="RecipeListScreen" component={RecipeListScreen} />
                 <Stack.Screen name="RecipeDetailScreen" component={RecipeDetailScreen} />
                 <Stack.Screen name="RecipeDetailList" component={RecipeDetailList} />
+                <Stack.Screen name="Favorites" component={Favorites} />
             </Stack.Navigator>
         </NavigationContainer>
     );

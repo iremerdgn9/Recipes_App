@@ -1,16 +1,18 @@
 import { StyleSheet,TouchableOpacity, Text,TextInput, View,SafeAreaView,Image, ScrollView} from "react-native";
 import React,{useState,useEffect} from "react";
 import { categories,recipes, colors} from "../Categories/component";
+import { navigation } from '@react-navigation/native';
 
-const Categories = () => {
+const Categories = ({navigation}) => {
+
     return(
         <View>
             <ScrollView horizontal>
-                {categories.map((category,index)=> {
+                {categories.map((category,item)=> {
                     return(
-                        <View key={index}
+                        <View key={item}
                         style={{
-                        backgroundColor:index==0 ? colors.COLOR_PRIMARY: colors.COLOR_LIGHT,
+                        backgroundColor:item==0 ? colors.COLOR_PRIMARY: colors.COLOR_LIGHT,
                         marginRight:10,
                         borderRadius:10,
                         paddingHorizontal:35,
@@ -20,14 +22,24 @@ const Categories = () => {
                         //shadowRadius:10,
                         marginVertical:10,
                         }}>
-                            <Text style={{fontSize:17,color: index==0 && colors.COLOR_LIGHT}}>{category.category}</Text>
-                        </View>
+                          <View>
+                           <TouchableOpacity
+                              onPress={()=>navigation.navigate("RecipeListScreen")}>
+
+                            <Text style={{fontSize:17,color: item==0 && colors.COLOR_LIGHT}}>{category.category}</Text>
+                          </TouchableOpacity>
+                       </View>
+
+                       </View>
+
                     );
                 })}
 
             </ScrollView>
         </View>
+
     );
+
 
 };
 

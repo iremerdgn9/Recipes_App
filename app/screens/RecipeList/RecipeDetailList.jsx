@@ -1,52 +1,58 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet,TouchableOpacity,FlatList, Text,TextInput, View,SafeAreaView,Image, ScrollView} from "react-native";
+import { StyleSheet,TouchableOpacity,FlatList,Pressable, Text,TextInput, View,SafeAreaView,Image, ScrollView} from "react-native";
 import React,{useState,useEffect} from "react";
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import { useNavigation } from '@react-navigation/native';
 import { FontAwesome} from "@expo/vector-icons";
 import {FontAwesomeIcon} from "@expo/vector-icons";
 import Search from "../Search/Search";
-//import Favorites from "../Favorites/Favorites";
+import Favorites from "../Favorites/Favorites";
 import Categories from "../Categories/categories";
 import { categories,recipes, colors} from "../Categories/component";
-//import Recipes from "../Recipe/Recipes";
+import Recipes from "../Recipe/Recipes";
 
 
 const RecipeDetailList= ({navigation}) => {
-    return (
 
-    <View style={{
-        backgroundColor:"#6b8e23",
-        flex:1}}>
-    <Text style={{alignItems:"center",color:"#fffff0", fontSize:80,marginTop:20}}> RECİPES </Text>
+    return (
+    <View style={{alignItems:"center",
+        backgroundColor:"#6b8e23",flex:1}}>
+    <SafeAreaView style={{flexDirection:"row" ,marginHorizontal:30 }}>
+        <Pressable style={{flex:1}} onPress={()=>navigation.goBack()}>
+            <FontAwesome name={"arrow-circle-left"}
+                size={35} color="orange" marginTop={40}/>
+        </Pressable>
+            <FontAwesome name={"heart-o"} size={30} color="white" marginTop={40}/>
+    </SafeAreaView>
+
+    <Text style={{alignItems:"center",color:"#fffff0", fontSize:60,marginTop:20}}> RECİPES</Text>
 
         <View
         style={{
-        backgroundColor:"#fff",
-        flex:1,
-        marginHorizontal:20,
-        marginTop:100,
-        borderTopLeftRadius:56,
-        borderTopRightRadius:56,
+            backgroundColor:"#fff",
+            flex:1,
+            marginTop:50,
+            borderTopLeftRadius:56,
+            borderTopRightRadius:56,
         }}>
         <FlatList data={recipes} renderItem={({item})=>(
         <View style={{alignItems:"center"}}>
 
          <TouchableOpacity
-            onPress={()=> navigation.navigate("RecipeDetailScreen")}>
+            onPress={()=> navigation.navigate("RecipeDetailScreen",{item:item})}>
         <Image source={item.image}
-            style={{width:350,height:250,resizeMode:"center"}}/>
+            style={{width:450,height:260,resizeMode:"contain", borderTopLeftRadius:56,
+                borderTopRightRadius:56}}/>
         </TouchableOpacity>
 
             <View style={{
-            alignItems:"center",
-            justifyContent:"center",
-            backgroundColor:"#fff",
-                    flex:1,
-                    marginHorizontal:20,
-                    marginTop:10,
-                    borderTopLeftRadius:56,
-                    borderTopRightRadius:56,
+                alignItems:"center",
+                justifyContent:"center",
+                backgroundColor:"#fff",
+                flex:1,
+                marginTop:15,
+                borderTopLeftRadius:56,
+                borderTopRightRadius:56,
             }}>
                 <Text style={{fontSize:30}}>{item.name} </Text>
             <View style={{flex:1,flexDecoration:"row",marginHorizontal:1, paddingHorizontal:20,paddingBottom:10,paddingTop:10}}>
@@ -65,15 +71,10 @@ const RecipeDetailList= ({navigation}) => {
         </View>
         )}/>
 
-
-
     </View>
     </View>
-
-
 );
 };
-
 
 export default RecipeDetailList;
 const styles = StyleSheet.create({});
